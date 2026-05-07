@@ -1,0 +1,235 @@
+2026-05-03 21:51:16 | INFO     | ═══ Inicio de sesión del sistema Software FJ ═══
+2026-05-03 21:51:16 | INFO     | [CLIENTE] REGISTRO | id=1 | nombre='Ana Torres' | email='ana.torres@email.com'
+2026-05-03 21:51:16 | INFO     | [CLIENTE] REGISTRO | id=2 | nombre='Luis Pérez' | email='luis.perez@correo.co'
+2026-05-03 21:51:16 | ERROR    | Intento de registro duplicado: email='ana.torres@email.com'
+2026-05-03 21:51:16 | ERROR    | Error al registrar cliente 'Carlos Gómez' | Excepción: ClienteEmailInvalidoError: [ERR_CLIENTE_EMAIL] Email inválido: 'correo_invalido'. Formato esperado: usuario@dominio.ext
+2026-05-03 21:51:16 | ERROR    | Error al registrar cliente '123abc' | Excepción: ClienteNombreInvalidoError: [ERR_CLIENTE_NOMBRE] Nombre de cliente inválido: '123abc'. Debe tener al menos 2 caracteres y solo letras/espacios.
+2026-05-03 21:51:16 | ERROR    | Error al registrar cliente 'María López' | Excepción: ClienteTelefonoInvalidoError: [ERR_CLIENTE_TELEFONO] Teléfono inválido: 'abc-xyz'. Solo se admiten dígitos, entre 7 y 15 caracteres.
+2026-05-03 21:51:16 | INFO     | [CLIENTE] REGISTRO | id=5 | nombre='Jorge Ramírez' | email='jorge.r@empresa.org'
+2026-05-03 21:51:16 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Innovación' | premium=False
+2026-05-03 21:51:16 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #6 | 'Sala Innovación' | Base: $80,000 COP | Estado: Disponible | Reservas: 0/8 | Tipo: Estándar
+2026-05-03 21:51:16 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Ejecutiva' | premium=True
+2026-05-03 21:51:16 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #7 | 'Sala Ejecutiva' | Base: $150,000 COP | Estado: Disponible | Reservas: 0/4 | Tipo: Premium
+2026-05-03 21:51:16 | INFO     | [SERVICIO] CREADO | AlquilerEquipo 'Portátil Dell XPS' | tipo='Portátil'
+2026-05-03 21:51:16 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AlquilerEquipo #8 | 'Portátil Dell XPS' | Base: $50,000 COP | Estado: Disponible | Reservas: 0/15 | Tipo equipo: Portátil
+2026-05-03 21:51:16 | INFO     | [SERVICIO] CREADO | AsesoriaEspecializada 'Asesoría Cloud AWS' | área='Infraestructura Cloud'
+2026-05-03 21:51:16 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AsesoriaEspecializada #9 | 'Asesoría Cloud AWS' | Base: $200,000 COP | Estado: Disponible | Reservas: 0/5 | Área: Infraestructura Cloud
+2026-05-03 21:51:16 | WARNING  | Asesoría 'Asesoría Cloud AWS' solicitada como urgente. Recargo aplicado.
+2026-05-03 21:51:16 | INFO     | [RESERVA] CREADA | id=1 | cliente='Ana Torres' | servicio='Sala Innovación' | duración=3.0h
+2026-05-03 21:51:16 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Innovación' | activas=1/8
+2026-05-03 21:51:16 | INFO     | [RESERVA] CONFIRMADA | id=1 | costo=$271,320.00 COP | iva=sí | descuento=5.0%
+2026-05-03 21:51:16 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 21:51:16 | INFO     | [RESERVA] CREADA | id=2 | cliente='Luis Pérez' | servicio='Asesoría Cloud AWS' | duración=2.0h
+2026-05-03 21:51:16 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Asesoría Cloud AWS' | activas=1/5
+2026-05-03 21:51:16 | INFO     | [RESERVA] CONFIRMADA | id=2 | costo=$400,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 21:51:16 | INFO     | Proceso de confirmación de reserva #2 finalizado. Estado actual: CONFIRMADA
+2026-05-03 21:51:16 | INFO     | [RESERVA] COMPLETADA | id=2 | cliente='Luis Pérez'
+2026-05-03 21:51:16 | INFO     | [RESERVA] CREADA | id=3 | cliente='Jorge Ramírez' | servicio='Portátil Dell XPS' | duración=8.0h
+2026-05-03 21:51:16 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Portátil Dell XPS' | activas=1/15
+2026-05-03 21:51:16 | INFO     | [RESERVA] CONFIRMADA | id=3 | costo=$50,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 21:51:16 | INFO     | Proceso de confirmación de reserva #3 finalizado. Estado actual: CONFIRMADA
+2026-05-03 21:51:16 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=3 | motivo='Cliente cambió de planes' | estado_final=CANCELADA
+2026-05-03 21:51:16 | ERROR    | Error al crear reserva | Excepción: ReservaDuracionInvalidaError: [ERR_RESERVA_DURACION] Duración de reserva inválida: 300.0h. Debe estar entre 0.5h y 240.0h.
+2026-05-03 21:51:16 | ERROR    | Error al confirmar reserva #1 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'confirmar' sobre una reserva en estado 'CONFIRMADA'.
+2026-05-03 21:51:16 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 21:51:16 | ERROR    | No se puede cancelar reserva #2 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'cancelar' sobre una reserva en estado 'COMPLETADA'.
+2026-05-03 21:51:16 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=2 | motivo='Intento erróneo' | estado_final=COMPLETADA
+2026-05-03 21:51:16 | INFO     | [RESERVA] CREADA | id=5 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=1.0h
+2026-05-03 21:51:16 | ERROR    | Error al confirmar reserva #5 | Excepción: ServicioNoDisponibleError: [ERR_SERVICIO_NO_DISPONIBLE] El servicio 'Sala Ejecutiva' no está disponible actualmente.
+2026-05-03 21:51:16 | INFO     | Proceso de confirmación de reserva #5 finalizado. Estado actual: PENDIENTE
+2026-05-03 21:51:16 | INFO     | [RESERVA] CREADA | id=6 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=2.0h
+2026-05-03 21:51:16 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Ejecutiva' | activas=1/4
+2026-05-03 21:51:16 | INFO     | [RESERVA] CONFIRMADA | id=6 | costo=$401,625.00 COP | iva=sí | descuento=10.0%
+2026-05-03 21:51:16 | INFO     | Proceso de confirmación de reserva #6 finalizado. Estado actual: CONFIRMADA
+2026-05-03 21:51:16 | INFO     | [RESERVA] CREADA | id=7 | cliente='Luis Pérez' | servicio='Sala Innovación' | duración=1.0h
+2026-05-03 21:51:16 | ERROR    | Error al confirmar reserva #7 | Excepción: ServicioCostoInvalidoError: [ERR_SERVICIO_COSTO] Error al calcular el costo del servicio: Descuento 50.0% fuera del rango permitido (0–30%).
+2026-05-03 21:51:16 | INFO     | Proceso de confirmación de reserva #7 finalizado. Estado actual: PENDIENTE
+2026-05-03 21:51:16 | INFO     | ═══ Sesión finalizada correctamente ═══
+2026-05-03 17:01:34 | INFO     | ═══ Inicio de sesión del sistema Software FJ ═══
+2026-05-03 17:01:34 | INFO     | [CLIENTE] REGISTRO | id=1 | nombre='Ana Torres' | email='ana.torres@email.com'
+2026-05-03 17:01:34 | INFO     | [CLIENTE] REGISTRO | id=2 | nombre='Luis Pérez' | email='luis.perez@correo.co'
+2026-05-03 17:01:34 | ERROR    | Intento de registro duplicado: email='ana.torres@email.com'
+2026-05-03 17:01:34 | ERROR    | Error al registrar cliente 'Carlos Gómez' | Excepción: ClienteEmailInvalidoError: [ERR_CLIENTE_EMAIL] Email inválido: 'correo_invalido'. Formato esperado: usuario@dominio.ext
+2026-05-03 17:01:34 | ERROR    | Error al registrar cliente '123abc' | Excepción: ClienteNombreInvalidoError: [ERR_CLIENTE_NOMBRE] Nombre de cliente inválido: '123abc'. Debe tener al menos 2 caracteres y solo letras/espacios.
+2026-05-03 17:01:34 | ERROR    | Error al registrar cliente 'María López' | Excepción: ClienteTelefonoInvalidoError: [ERR_CLIENTE_TELEFONO] Teléfono inválido: 'abc-xyz'. Solo se admiten dígitos, entre 7 y 15 caracteres.
+2026-05-03 17:01:34 | INFO     | [CLIENTE] REGISTRO | id=5 | nombre='Jorge Ramírez' | email='jorge.r@empresa.org'
+2026-05-03 17:01:34 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Innovación' | premium=False
+2026-05-03 17:01:34 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #6 | 'Sala Innovación' | Base: $80,000 COP | Estado: Disponible | Reservas: 0/8 | Tipo: Estándar
+2026-05-03 17:01:34 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Ejecutiva' | premium=True
+2026-05-03 17:01:34 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #7 | 'Sala Ejecutiva' | Base: $150,000 COP | Estado: Disponible | Reservas: 0/4 | Tipo: Premium
+2026-05-03 17:01:34 | INFO     | [SERVICIO] CREADO | AlquilerEquipo 'Portátil Dell XPS' | tipo='Portátil'
+2026-05-03 17:01:34 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AlquilerEquipo #8 | 'Portátil Dell XPS' | Base: $50,000 COP | Estado: Disponible | Reservas: 0/15 | Tipo equipo: Portátil
+2026-05-03 17:01:34 | INFO     | [SERVICIO] CREADO | AsesoriaEspecializada 'Asesoría Cloud AWS' | área='Infraestructura Cloud'
+2026-05-03 17:01:34 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AsesoriaEspecializada #9 | 'Asesoría Cloud AWS' | Base: $200,000 COP | Estado: Disponible | Reservas: 0/5 | Área: Infraestructura Cloud
+2026-05-03 17:01:34 | WARNING  | Asesoría 'Asesoría Cloud AWS' solicitada como urgente. Recargo aplicado.
+2026-05-03 17:01:34 | INFO     | [RESERVA] CREADA | id=1 | cliente='Ana Torres' | servicio='Sala Innovación' | duración=3.0h
+2026-05-03 17:01:34 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Innovación' | activas=1/8
+2026-05-03 17:01:34 | INFO     | [RESERVA] CONFIRMADA | id=1 | costo=$271,320.00 COP | iva=sí | descuento=5.0%
+2026-05-03 17:01:34 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:01:34 | INFO     | [RESERVA] CREADA | id=2 | cliente='Luis Pérez' | servicio='Asesoría Cloud AWS' | duración=2.0h
+2026-05-03 17:01:34 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Asesoría Cloud AWS' | activas=1/5
+2026-05-03 17:01:34 | INFO     | [RESERVA] CONFIRMADA | id=2 | costo=$400,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 17:01:34 | INFO     | Proceso de confirmación de reserva #2 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:01:34 | INFO     | [RESERVA] COMPLETADA | id=2 | cliente='Luis Pérez'
+2026-05-03 17:01:34 | INFO     | [RESERVA] CREADA | id=3 | cliente='Jorge Ramírez' | servicio='Portátil Dell XPS' | duración=8.0h
+2026-05-03 17:01:34 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Portátil Dell XPS' | activas=1/15
+2026-05-03 17:01:34 | INFO     | [RESERVA] CONFIRMADA | id=3 | costo=$50,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 17:01:34 | INFO     | Proceso de confirmación de reserva #3 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:01:34 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=3 | motivo='Cliente cambió de planes' | estado_final=CANCELADA
+2026-05-03 17:01:34 | ERROR    | Error al crear reserva | Excepción: ReservaDuracionInvalidaError: [ERR_RESERVA_DURACION] Duración de reserva inválida: 300.0h. Debe estar entre 0.5h y 240.0h.
+2026-05-03 17:01:35 | ERROR    | Error al confirmar reserva #1 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'confirmar' sobre una reserva en estado 'CONFIRMADA'.
+2026-05-03 17:01:35 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:01:35 | ERROR    | No se puede cancelar reserva #2 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'cancelar' sobre una reserva en estado 'COMPLETADA'.
+2026-05-03 17:01:35 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=2 | motivo='Intento erróneo' | estado_final=COMPLETADA
+2026-05-03 17:01:35 | INFO     | [RESERVA] CREADA | id=5 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=1.0h
+2026-05-03 17:01:35 | ERROR    | Error al confirmar reserva #5 | Excepción: ServicioNoDisponibleError: [ERR_SERVICIO_NO_DISPONIBLE] El servicio 'Sala Ejecutiva' no está disponible actualmente.
+2026-05-03 17:01:35 | INFO     | Proceso de confirmación de reserva #5 finalizado. Estado actual: PENDIENTE
+2026-05-03 17:01:35 | INFO     | [RESERVA] CREADA | id=6 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=2.0h
+2026-05-03 17:01:35 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Ejecutiva' | activas=1/4
+2026-05-03 17:01:35 | INFO     | [RESERVA] CONFIRMADA | id=6 | costo=$401,625.00 COP | iva=sí | descuento=10.0%
+2026-05-03 17:01:35 | INFO     | Proceso de confirmación de reserva #6 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:01:35 | INFO     | [RESERVA] CREADA | id=7 | cliente='Luis Pérez' | servicio='Sala Innovación' | duración=1.0h
+2026-05-03 17:01:35 | ERROR    | Error al confirmar reserva #7 | Excepción: ServicioCostoInvalidoError: [ERR_SERVICIO_COSTO] Error al calcular el costo del servicio: Descuento 50.0% fuera del rango permitido (0–30%).
+2026-05-03 17:01:35 | INFO     | Proceso de confirmación de reserva #7 finalizado. Estado actual: PENDIENTE
+2026-05-03 17:01:35 | INFO     | ═══ Sesión finalizada correctamente ═══
+2026-05-03 17:10:33 | INFO     | ═══ Inicio de sesión del sistema Software FJ ═══
+2026-05-03 17:10:33 | INFO     | [CLIENTE] REGISTRO | id=1 | nombre='Ana Torres' | email='ana.torres@email.com'
+2026-05-03 17:10:33 | INFO     | [CLIENTE] REGISTRO | id=2 | nombre='Luis Pérez' | email='luis.perez@correo.co'
+2026-05-03 17:10:33 | ERROR    | Intento de registro duplicado: email='ana.torres@email.com'
+2026-05-03 17:10:33 | ERROR    | Error al registrar cliente 'Carlos Gómez' | Excepción: ClienteEmailInvalidoError: [ERR_CLIENTE_EMAIL] Email inválido: 'correo_invalido'. Formato esperado: usuario@dominio.ext
+2026-05-03 17:10:33 | ERROR    | Error al registrar cliente '123abc' | Excepción: ClienteNombreInvalidoError: [ERR_CLIENTE_NOMBRE] Nombre de cliente inválido: '123abc'. Debe tener al menos 2 caracteres y solo letras/espacios.
+2026-05-03 17:10:33 | ERROR    | Error al registrar cliente 'María López' | Excepción: ClienteTelefonoInvalidoError: [ERR_CLIENTE_TELEFONO] Teléfono inválido: 'abc-xyz'. Solo se admiten dígitos, entre 7 y 15 caracteres.
+2026-05-03 17:10:33 | INFO     | [CLIENTE] REGISTRO | id=5 | nombre='Jorge Ramírez' | email='jorge.r@empresa.org'
+2026-05-03 17:10:33 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Innovación' | premium=False
+2026-05-03 17:10:33 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #6 | 'Sala Innovación' | Base: $80,000 COP | Estado: Disponible | Reservas: 0/8 | Tipo: Estándar
+2026-05-03 17:10:33 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Ejecutiva' | premium=True
+2026-05-03 17:10:33 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #7 | 'Sala Ejecutiva' | Base: $150,000 COP | Estado: Disponible | Reservas: 0/4 | Tipo: Premium
+2026-05-03 17:10:33 | INFO     | [SERVICIO] CREADO | AlquilerEquipo 'Portátil Dell XPS' | tipo='Portátil'
+2026-05-03 17:10:33 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AlquilerEquipo #8 | 'Portátil Dell XPS' | Base: $50,000 COP | Estado: Disponible | Reservas: 0/15 | Tipo equipo: Portátil
+2026-05-03 17:10:33 | INFO     | [SERVICIO] CREADO | AsesoriaEspecializada 'Asesoría Cloud AWS' | área='Infraestructura Cloud'
+2026-05-03 17:10:33 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AsesoriaEspecializada #9 | 'Asesoría Cloud AWS' | Base: $200,000 COP | Estado: Disponible | Reservas: 0/5 | Área: Infraestructura Cloud
+2026-05-03 17:10:33 | WARNING  | Asesoría 'Asesoría Cloud AWS' solicitada como urgente. Recargo aplicado.
+2026-05-03 17:10:33 | INFO     | [RESERVA] CREADA | id=1 | cliente='Ana Torres' | servicio='Sala Innovación' | duración=3.0h
+2026-05-03 17:10:33 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Innovación' | activas=1/8
+2026-05-03 17:10:33 | INFO     | [RESERVA] CONFIRMADA | id=1 | costo=$271,320.00 COP | iva=sí | descuento=5.0%
+2026-05-03 17:10:33 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:10:33 | INFO     | [RESERVA] CREADA | id=2 | cliente='Luis Pérez' | servicio='Asesoría Cloud AWS' | duración=2.0h
+2026-05-03 17:10:33 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Asesoría Cloud AWS' | activas=1/5
+2026-05-03 17:10:33 | INFO     | [RESERVA] CONFIRMADA | id=2 | costo=$400,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 17:10:33 | INFO     | Proceso de confirmación de reserva #2 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:10:33 | INFO     | [RESERVA] COMPLETADA | id=2 | cliente='Luis Pérez'
+2026-05-03 17:10:33 | INFO     | [RESERVA] CREADA | id=3 | cliente='Jorge Ramírez' | servicio='Portátil Dell XPS' | duración=8.0h
+2026-05-03 17:10:33 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Portátil Dell XPS' | activas=1/15
+2026-05-03 17:10:33 | INFO     | [RESERVA] CONFIRMADA | id=3 | costo=$50,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 17:10:33 | INFO     | Proceso de confirmación de reserva #3 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:10:33 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=3 | motivo='Cliente cambió de planes' | estado_final=CANCELADA
+2026-05-03 17:10:34 | ERROR    | Error al crear reserva | Excepción: ReservaDuracionInvalidaError: [ERR_RESERVA_DURACION] Duración de reserva inválida: 300.0h. Debe estar entre 0.5h y 240.0h.
+2026-05-03 17:10:34 | ERROR    | Error al confirmar reserva #1 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'confirmar' sobre una reserva en estado 'CONFIRMADA'.
+2026-05-03 17:10:34 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:10:34 | ERROR    | No se puede cancelar reserva #2 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'cancelar' sobre una reserva en estado 'COMPLETADA'.
+2026-05-03 17:10:34 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=2 | motivo='Intento erróneo' | estado_final=COMPLETADA
+2026-05-03 17:10:34 | INFO     | [RESERVA] CREADA | id=5 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=1.0h
+2026-05-03 17:10:34 | ERROR    | Error al confirmar reserva #5 | Excepción: ServicioNoDisponibleError: [ERR_SERVICIO_NO_DISPONIBLE] El servicio 'Sala Ejecutiva' no está disponible actualmente.
+2026-05-03 17:10:34 | INFO     | Proceso de confirmación de reserva #5 finalizado. Estado actual: PENDIENTE
+2026-05-03 17:10:34 | INFO     | [RESERVA] CREADA | id=6 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=2.0h
+2026-05-03 17:10:34 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Ejecutiva' | activas=1/4
+2026-05-03 17:10:34 | INFO     | [RESERVA] CONFIRMADA | id=6 | costo=$401,625.00 COP | iva=sí | descuento=10.0%
+2026-05-03 17:10:34 | INFO     | Proceso de confirmación de reserva #6 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:10:34 | INFO     | [RESERVA] CREADA | id=7 | cliente='Luis Pérez' | servicio='Sala Innovación' | duración=1.0h
+2026-05-03 17:10:34 | ERROR    | Error al confirmar reserva #7 | Excepción: ServicioCostoInvalidoError: [ERR_SERVICIO_COSTO] Error al calcular el costo del servicio: Descuento 50.0% fuera del rango permitido (0–30%).
+2026-05-03 17:10:34 | INFO     | Proceso de confirmación de reserva #7 finalizado. Estado actual: PENDIENTE
+2026-05-03 17:10:34 | INFO     | ═══ Sesión finalizada correctamente ═══
+2026-05-03 17:16:41 | INFO     | ═══ Inicio de sesión del sistema Software FJ ═══
+2026-05-03 17:16:41 | INFO     | [CLIENTE] REGISTRO | id=1 | nombre='Ana Torres' | email='ana.torres@email.com'
+2026-05-03 17:16:41 | INFO     | [CLIENTE] REGISTRO | id=2 | nombre='Luis Pérez' | email='luis.perez@correo.co'
+2026-05-03 17:16:41 | ERROR    | Intento de registro duplicado: email='ana.torres@email.com'
+2026-05-03 17:16:41 | ERROR    | Error al registrar cliente 'Carlos Gómez' | Excepción: ClienteEmailInvalidoError: [ERR_CLIENTE_EMAIL] Email inválido: 'correo_invalido'. Formato esperado: usuario@dominio.ext
+2026-05-03 17:16:41 | ERROR    | Error al registrar cliente '123abc' | Excepción: ClienteNombreInvalidoError: [ERR_CLIENTE_NOMBRE] Nombre de cliente inválido: '123abc'. Debe tener al menos 2 caracteres y solo letras/espacios.
+2026-05-03 17:16:41 | ERROR    | Error al registrar cliente 'María López' | Excepción: ClienteTelefonoInvalidoError: [ERR_CLIENTE_TELEFONO] Teléfono inválido: 'abc-xyz'. Solo se admiten dígitos, entre 7 y 15 caracteres.
+2026-05-03 17:16:41 | INFO     | [CLIENTE] REGISTRO | id=5 | nombre='Jorge Ramírez' | email='jorge.r@empresa.org'
+2026-05-03 17:16:41 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Innovación' | premium=False
+2026-05-03 17:16:41 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #6 | 'Sala Innovación' | Base: $80,000 COP | Estado: Disponible | Reservas: 0/8 | Tipo: Estándar
+2026-05-03 17:16:41 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Ejecutiva' | premium=True
+2026-05-03 17:16:41 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #7 | 'Sala Ejecutiva' | Base: $150,000 COP | Estado: Disponible | Reservas: 0/4 | Tipo: Premium
+2026-05-03 17:16:41 | INFO     | [SERVICIO] CREADO | AlquilerEquipo 'Portátil Dell XPS' | tipo='Portátil'
+2026-05-03 17:16:41 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AlquilerEquipo #8 | 'Portátil Dell XPS' | Base: $50,000 COP | Estado: Disponible | Reservas: 0/15 | Tipo equipo: Portátil
+2026-05-03 17:16:41 | INFO     | [SERVICIO] CREADO | AsesoriaEspecializada 'Asesoría Cloud AWS' | área='Infraestructura Cloud'
+2026-05-03 17:16:41 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AsesoriaEspecializada #9 | 'Asesoría Cloud AWS' | Base: $200,000 COP | Estado: Disponible | Reservas: 0/5 | Área: Infraestructura Cloud
+2026-05-03 17:16:41 | WARNING  | Asesoría 'Asesoría Cloud AWS' solicitada como urgente. Recargo aplicado.
+2026-05-03 17:16:41 | INFO     | [RESERVA] CREADA | id=1 | cliente='Ana Torres' | servicio='Sala Innovación' | duración=3.0h
+2026-05-03 17:16:41 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Innovación' | activas=1/8
+2026-05-03 17:16:41 | INFO     | [RESERVA] CONFIRMADA | id=1 | costo=$271,320.00 COP | iva=sí | descuento=5.0%
+2026-05-03 17:16:41 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:16:41 | INFO     | [RESERVA] CREADA | id=2 | cliente='Luis Pérez' | servicio='Asesoría Cloud AWS' | duración=2.0h
+2026-05-03 17:16:41 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Asesoría Cloud AWS' | activas=1/5
+2026-05-03 17:16:41 | INFO     | [RESERVA] CONFIRMADA | id=2 | costo=$400,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 17:16:41 | INFO     | Proceso de confirmación de reserva #2 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:16:41 | INFO     | [RESERVA] COMPLETADA | id=2 | cliente='Luis Pérez'
+2026-05-03 17:16:41 | INFO     | [RESERVA] CREADA | id=3 | cliente='Jorge Ramírez' | servicio='Portátil Dell XPS' | duración=8.0h
+2026-05-03 17:16:41 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Portátil Dell XPS' | activas=1/15
+2026-05-03 17:16:41 | INFO     | [RESERVA] CONFIRMADA | id=3 | costo=$50,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 17:16:41 | INFO     | Proceso de confirmación de reserva #3 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:16:41 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=3 | motivo='Cliente cambió de planes' | estado_final=CANCELADA
+2026-05-03 17:16:41 | ERROR    | Error al crear reserva | Excepción: ReservaDuracionInvalidaError: [ERR_RESERVA_DURACION] Duración de reserva inválida: 300.0h. Debe estar entre 0.5h y 240.0h.
+2026-05-03 17:16:41 | ERROR    | Error al confirmar reserva #1 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'confirmar' sobre una reserva en estado 'CONFIRMADA'.
+2026-05-03 17:16:41 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:16:41 | ERROR    | No se puede cancelar reserva #2 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'cancelar' sobre una reserva en estado 'COMPLETADA'.
+2026-05-03 17:16:41 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=2 | motivo='Intento erróneo' | estado_final=COMPLETADA
+2026-05-03 17:16:41 | INFO     | [RESERVA] CREADA | id=5 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=1.0h
+2026-05-03 17:16:41 | ERROR    | Error al confirmar reserva #5 | Excepción: ServicioNoDisponibleError: [ERR_SERVICIO_NO_DISPONIBLE] El servicio 'Sala Ejecutiva' no está disponible actualmente.
+2026-05-03 17:16:41 | INFO     | Proceso de confirmación de reserva #5 finalizado. Estado actual: PENDIENTE
+2026-05-03 17:16:41 | INFO     | [RESERVA] CREADA | id=6 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=2.0h
+2026-05-03 17:16:41 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Ejecutiva' | activas=1/4
+2026-05-03 17:16:41 | INFO     | [RESERVA] CONFIRMADA | id=6 | costo=$401,625.00 COP | iva=sí | descuento=10.0%
+2026-05-03 17:16:41 | INFO     | Proceso de confirmación de reserva #6 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:16:41 | INFO     | [RESERVA] CREADA | id=7 | cliente='Luis Pérez' | servicio='Sala Innovación' | duración=1.0h
+2026-05-03 17:16:41 | ERROR    | Error al confirmar reserva #7 | Excepción: ServicioCostoInvalidoError: [ERR_SERVICIO_COSTO] Error al calcular el costo del servicio: Descuento 50.0% fuera del rango permitido (0–30%).
+2026-05-03 17:16:41 | INFO     | Proceso de confirmación de reserva #7 finalizado. Estado actual: PENDIENTE
+2026-05-03 17:16:41 | INFO     | ═══ Sesión finalizada correctamente ═══
+2026-05-03 17:17:58 | INFO     | ═══ Inicio de sesión del sistema Software FJ ═══
+2026-05-03 17:17:58 | INFO     | [CLIENTE] REGISTRO | id=1 | nombre='Ana Torres' | email='ana.torres@email.com'
+2026-05-03 17:17:58 | INFO     | [CLIENTE] REGISTRO | id=2 | nombre='Luis Pérez' | email='luis.perez@correo.co'
+2026-05-03 17:17:58 | ERROR    | Intento de registro duplicado: email='ana.torres@email.com'
+2026-05-03 17:17:58 | ERROR    | Error al registrar cliente 'Carlos Gómez' | Excepción: ClienteEmailInvalidoError: [ERR_CLIENTE_EMAIL] Email inválido: 'correo_invalido'. Formato esperado: usuario@dominio.ext
+2026-05-03 17:17:58 | ERROR    | Error al registrar cliente '123abc' | Excepción: ClienteNombreInvalidoError: [ERR_CLIENTE_NOMBRE] Nombre de cliente inválido: '123abc'. Debe tener al menos 2 caracteres y solo letras/espacios.
+2026-05-03 17:17:58 | ERROR    | Error al registrar cliente 'María López' | Excepción: ClienteTelefonoInvalidoError: [ERR_CLIENTE_TELEFONO] Teléfono inválido: 'abc-xyz'. Solo se admiten dígitos, entre 7 y 15 caracteres.
+2026-05-03 17:17:58 | INFO     | [CLIENTE] REGISTRO | id=5 | nombre='Jorge Ramírez' | email='jorge.r@empresa.org'
+2026-05-03 17:17:58 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Innovación' | premium=False
+2026-05-03 17:17:58 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #6 | 'Sala Innovación' | Base: $80,000 COP | Estado: Disponible | Reservas: 0/8 | Tipo: Estándar
+2026-05-03 17:17:58 | INFO     | [SERVICIO] CREADO | ReservaSala 'Sala Ejecutiva' | premium=True
+2026-05-03 17:17:58 | INFO     | [GESTOR_SERVICIOS] AGREGADO | ReservaSala #7 | 'Sala Ejecutiva' | Base: $150,000 COP | Estado: Disponible | Reservas: 0/4 | Tipo: Premium
+2026-05-03 17:17:58 | INFO     | [SERVICIO] CREADO | AlquilerEquipo 'Portátil Dell XPS' | tipo='Portátil'
+2026-05-03 17:17:58 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AlquilerEquipo #8 | 'Portátil Dell XPS' | Base: $50,000 COP | Estado: Disponible | Reservas: 0/15 | Tipo equipo: Portátil
+2026-05-03 17:17:58 | INFO     | [SERVICIO] CREADO | AsesoriaEspecializada 'Asesoría Cloud AWS' | área='Infraestructura Cloud'
+2026-05-03 17:17:58 | INFO     | [GESTOR_SERVICIOS] AGREGADO | AsesoriaEspecializada #9 | 'Asesoría Cloud AWS' | Base: $200,000 COP | Estado: Disponible | Reservas: 0/5 | Área: Infraestructura Cloud
+2026-05-03 17:17:58 | WARNING  | Asesoría 'Asesoría Cloud AWS' solicitada como urgente. Recargo aplicado.
+2026-05-03 17:17:58 | INFO     | [RESERVA] CREADA | id=1 | cliente='Ana Torres' | servicio='Sala Innovación' | duración=3.0h
+2026-05-03 17:17:58 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Innovación' | activas=1/8
+2026-05-03 17:17:58 | INFO     | [RESERVA] CONFIRMADA | id=1 | costo=$271,320.00 COP | iva=sí | descuento=5.0%
+2026-05-03 17:17:58 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:17:58 | INFO     | [RESERVA] CREADA | id=2 | cliente='Luis Pérez' | servicio='Asesoría Cloud AWS' | duración=2.0h
+2026-05-03 17:17:58 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Asesoría Cloud AWS' | activas=1/5
+2026-05-03 17:17:58 | INFO     | [RESERVA] CONFIRMADA | id=2 | costo=$400,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 17:17:58 | INFO     | Proceso de confirmación de reserva #2 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:17:58 | INFO     | [RESERVA] COMPLETADA | id=2 | cliente='Luis Pérez'
+2026-05-03 17:17:58 | INFO     | [RESERVA] CREADA | id=3 | cliente='Jorge Ramírez' | servicio='Portátil Dell XPS' | duración=8.0h
+2026-05-03 17:17:58 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Portátil Dell XPS' | activas=1/15
+2026-05-03 17:17:58 | INFO     | [RESERVA] CONFIRMADA | id=3 | costo=$50,000.00 COP | iva=no | descuento=0.0%
+2026-05-03 17:17:58 | INFO     | Proceso de confirmación de reserva #3 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:17:58 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=3 | motivo='Cliente cambió de planes' | estado_final=CANCELADA
+2026-05-03 17:17:58 | ERROR    | Error al crear reserva | Excepción: ReservaDuracionInvalidaError: [ERR_RESERVA_DURACION] Duración de reserva inválida: 300.0h. Debe estar entre 0.5h y 240.0h.
+2026-05-03 17:17:58 | ERROR    | Error al confirmar reserva #1 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'confirmar' sobre una reserva en estado 'CONFIRMADA'.
+2026-05-03 17:17:58 | INFO     | Proceso de confirmación de reserva #1 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:17:58 | ERROR    | No se puede cancelar reserva #2 | Excepción: ReservaEstadoInvalidoError: [ERR_RESERVA_ESTADO] No se puede ejecutar 'cancelar' sobre una reserva en estado 'COMPLETADA'.
+2026-05-03 17:17:58 | INFO     | [RESERVA] CANCELACION_INTENTADA | id=2 | motivo='Intento erróneo' | estado_final=COMPLETADA
+2026-05-03 17:17:58 | INFO     | [RESERVA] CREADA | id=5 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=1.0h
+2026-05-03 17:17:58 | ERROR    | Error al confirmar reserva #5 | Excepción: ServicioNoDisponibleError: [ERR_SERVICIO_NO_DISPONIBLE] El servicio 'Sala Ejecutiva' no está disponible actualmente.
+2026-05-03 17:17:58 | INFO     | Proceso de confirmación de reserva #5 finalizado. Estado actual: PENDIENTE
+2026-05-03 17:17:58 | INFO     | [RESERVA] CREADA | id=6 | cliente='Ana Torres' | servicio='Sala Ejecutiva' | duración=2.0h
+2026-05-03 17:17:58 | INFO     | [SERVICIO] RESERVA_REGISTRADA | 'Sala Ejecutiva' | activas=1/4
+2026-05-03 17:17:58 | INFO     | [RESERVA] CONFIRMADA | id=6 | costo=$401,625.00 COP | iva=sí | descuento=10.0%
+2026-05-03 17:17:58 | INFO     | Proceso de confirmación de reserva #6 finalizado. Estado actual: CONFIRMADA
+2026-05-03 17:17:58 | INFO     | [RESERVA] CREADA | id=7 | cliente='Luis Pérez' | servicio='Sala Innovación' | duración=1.0h
+2026-05-03 17:17:58 | ERROR    | Error al confirmar reserva #7 | Excepción: ServicioCostoInvalidoError: [ERR_SERVICIO_COSTO] Error al calcular el costo del servicio: Descuento 50.0% fuera del rango permitido (0–30%).
+2026-05-03 17:17:58 | INFO     | Proceso de confirmación de reserva #7 finalizado. Estado actual: PENDIENTE
+2026-05-03 17:17:59 | INFO     | ═══ Sesión finalizada correctamente ═══
